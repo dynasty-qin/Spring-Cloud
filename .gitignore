@@ -4,6 +4,7 @@
 .metadata
 *.log
 bin/
+/.idea/
 tmp/
 *.tmp
 *.bak
