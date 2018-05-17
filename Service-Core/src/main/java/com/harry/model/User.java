@@ -23,5 +23,4 @@ public class User implements Serializable{
     @FieldFormat(value = FieldFormatEnum.DATE)
     private Date birthday;
 
-
 }

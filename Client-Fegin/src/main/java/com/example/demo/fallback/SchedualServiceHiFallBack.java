@@ -16,6 +16,6 @@ public class SchedualServiceHiFallBack implements SchedualServiceHi {
 
     @Override
     public ResponseBean addUser(User user) {
-        return new ResponseBean().fail("Failed !");
+        return new ResponseBean().fail("failed !");
     }
 }

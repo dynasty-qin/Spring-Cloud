@@ -9,7 +9,6 @@ import java.io.Serializable;
  *
  */
 public class ResponseBean implements Serializable{
-    
 
     public static String SUCCESS_CODE = "0";
 
@@ -70,7 +69,10 @@ public class ResponseBean implements Serializable{
         return this;
     }
 
-    public class Meta implements Serializable{
+    public static class Meta implements Serializable{
+
+        public Meta() {
+        }
 
         public Meta(String code) {
             this.code = code;

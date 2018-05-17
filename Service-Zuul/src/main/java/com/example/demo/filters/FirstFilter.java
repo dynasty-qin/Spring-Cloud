@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 
 //@Component
 public class FirstFilter extends ZuulFilter {
+
     @Override
     public String filterType() {
         return "pre";
