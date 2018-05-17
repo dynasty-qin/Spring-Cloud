@@ -1,6 +1,7 @@
 package com.example.demo.aspects;
 
-import com.example.demo.annotations.ExecTime;
+import com.alibaba.fastjson.JSONObject;
+import com.harry.annotations.ExecTime;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
 
 @Aspect
 @Component
@@ -19,7 +21,7 @@ public class ExecTimeAspect {
 
     private static final Logger log = LoggerFactory.getLogger(ExecTime.class);
 
-    @Pointcut("@annotation(com.example.demo.annotations.ExecTime)")
+    @Pointcut("@annotation(com.harry.annotations.ExecTime)")
     public void execTime(){
     }
 
@@ -32,6 +34,8 @@ public class ExecTimeAspect {
             long elapsedTime = System.currentTimeMillis() - l;
             String simpleName = joinPoint.getTarget().getClass().getSimpleName();
             log.info(String.format("method [ %s.%s() ] execution time : %s ms", simpleName, joinPoint.getSignature().getName(), elapsedTime));
+            JSONObject returnMsg = (JSONObject) JSONObject.toJSON(output);
+            log.info("Return : " + returnMsg.get("meta").toString());
         } catch (Throwable throwable) {
             throwable.printStackTrace();
         }
@@ -43,7 +47,11 @@ public class ExecTimeAspect {
         ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = requestAttributes.getRequest();
         String remoteHost = request.getRemoteHost();
-        log.info("请求客户端地址 : " + remoteHost);
-        log.info("请求路径 : " + request.getRequestURL());
+        log.info("RequestHost : " + remoteHost);
+        log.info("RequestURL : " + request.getRequestURL());
+        String method = request.getMethod();
+        log.info("RequestMethod : " + method);
+        Map<String, String[]> parameterMap = request.getParameterMap();
+        log.info("RequestParam : " + JSONObject.toJSONString(parameterMap));
     }
 }

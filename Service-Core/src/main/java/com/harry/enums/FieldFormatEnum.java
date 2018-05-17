@@ -1,4 +1,4 @@
-package com.example.demo.enums;
+package com.harry.enums;
 
 public enum FieldFormatEnum {
 

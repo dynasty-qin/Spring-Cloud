@@ -1,10 +1,10 @@
 package com.example.demo.controller;
 
-import com.example.demo.annotations.ExecTime;
-import com.example.demo.annotations.RequestDecode;
-import com.example.demo.dto.ResponseBean;
-import com.example.demo.model.User;
 import com.example.demo.service.HelloService;
+import com.harry.annotations.ExecTime;
+import com.harry.annotations.RequestDecode;
+import com.harry.model.ResponseBean;
+import com.harry.model.User;
 import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import java.math.BigDecimal;
@@ -20,7 +20,6 @@ public class HelloController {
     @ExecTime
     @RequestMapping(value = "/first",produces = "application/json",method = RequestMethod.GET)
     public ResponseBean sayHello(@RequestParam String name){
-
 
         return new ResponseBean().success(helloService.sayHello(name));
     }

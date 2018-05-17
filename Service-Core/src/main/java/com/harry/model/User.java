@@ -1,13 +1,14 @@
-package com.example.demo.model;
+package com.harry.model;
 
-import com.example.demo.annotations.FieldFormat;
-import com.example.demo.enums.FieldFormatEnum;
+import com.harry.annotations.FieldFormat;
+import com.harry.enums.FieldFormatEnum;
 import lombok.Data;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
 @Data
-public class User {
+public class User implements Serializable{
 
     private String name;
 
@@ -21,5 +22,6 @@ public class User {
 
     @FieldFormat(value = FieldFormatEnum.DATE)
     private Date birthday;
+
 
 }

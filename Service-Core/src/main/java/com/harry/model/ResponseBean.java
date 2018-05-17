@@ -1,8 +1,6 @@
-package com.example.demo.dto;
+package com.harry.model;
 
 import java.io.Serializable;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 
 /**
@@ -12,8 +10,7 @@ import org.slf4j.LoggerFactory;
  */
 public class ResponseBean implements Serializable{
     
-    private final static Logger log = LoggerFactory.getLogger(ResponseBean.class); 
-    
+
     public static String SUCCESS_CODE = "0";
 
     public static String FAIL_CODE = "999999";
@@ -43,39 +40,33 @@ public class ResponseBean implements Serializable{
 
     public ResponseBean success() {
         this.meta = new Meta(SUCCESS_CODE, OK);
-        log.info(this.toString());
         return this;
     }
     
 
     public ResponseBean success(String code, String message) {
         this.meta = new Meta(code, message);
-        log.info(this.toString());
         return this;
     }
 
     public ResponseBean success(Object data) {
         this.meta = new Meta(SUCCESS_CODE, OK);
         this.data = data;
-        log.info(this.toString());
         return this;
     }
     
     public ResponseBean fail() {
         this.meta = new Meta(FAIL_CODE, FAIL);
-        log.info(this.toString());
         return this;
     }
 
     public ResponseBean fail(String message) {
         this.meta = new Meta(FAIL_CODE, message);
-        log.info(this.toString());
         return this;
     }
 
     public ResponseBean fail(String code, String message) {
         this.meta = new Meta(code, message);
-        log.info(this.toString());
         return this;
     }
 
@@ -117,7 +108,6 @@ public class ResponseBean implements Serializable{
         }
         @Override
         public String toString() {
-            // TODO Auto-generated method stub
             StringBuffer sb = new StringBuffer("Meta:[ code :");
             sb.append(this.code);
             sb.append(" , message: ");
@@ -130,7 +120,6 @@ public class ResponseBean implements Serializable{
     
     @Override
     public String toString() {
-        // TODO Auto-generated method stub
         StringBuffer sb = new StringBuffer("响应参数： ResponseBean:[ ");
         sb.append(this.meta.toString());
         sb.append(", data: ");

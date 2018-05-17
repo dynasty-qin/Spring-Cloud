@@ -1,6 +1,7 @@
-package com.example.demo.annotations;
+package com.harry.annotations;
 
-import com.example.demo.enums.FieldFormatEnum;
+import com.harry.enums.FieldFormatEnum;
+
 import java.lang.annotation.*;
 
 @Target(ElementType.FIELD)

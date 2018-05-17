@@ -1,24 +1,27 @@
 package com.example.demo.controller;
 
 import com.example.demo.service.SchedualServiceHi;
+import com.harry.model.ResponseBean;
+import com.harry.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-@SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
 @RestController
+@RequestMapping(value="/hi")
 public class HiController {
 
     @Autowired
     private SchedualServiceHi serviceHi;
 
-    @RequestMapping(value = "/hi",method = RequestMethod.GET)
+    @RequestMapping(value = "/sayHi",method = RequestMethod.GET)
     public String hi(@RequestParam String name){
 
         return serviceHi.sayHiFromClientOne(name);
     }
 
+    @RequestMapping(value = "/addUser",method = RequestMethod.POST)
+    public ResponseBean addUser(@RequestBody User user){
+        return serviceHi.addUser(user);
+    }
 
 }
