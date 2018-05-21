@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value="/hi")
-public class HiController {
+@RequestMapping(value="/user")
+public class UserController {
 
     @Autowired
     private SchedualServiceHi serviceHi;
@@ -19,9 +19,9 @@ public class HiController {
         return serviceHi.sayHiFromClientOne(name);
     }
 
-    @RequestMapping(value = "/addUser",method = RequestMethod.POST)
-    public ResponseBean addUser(@RequestBody User user){
-        return serviceHi.addUser(user);
+    @RequestMapping(value = "/{id}",method = RequestMethod.POST)
+    public ResponseBean addUser(@PathVariable Integer id){
+        return serviceHi.getUser(id);
     }
 
 }
