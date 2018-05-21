@@ -34,7 +34,7 @@ public class ExecTimeAspect {
             long elapsedTime = System.currentTimeMillis() - l;
             String simpleName = joinPoint.getTarget().getClass().getSimpleName();
             log.info(String.format("method [ %s.%s() ] execution time : %s ms", simpleName, joinPoint.getSignature().getName(), elapsedTime));
-            JSONObject returnMsg = (JSONObject) JSONObject.toJSON(output);
+//            JSONObject returnMsg = (JSONObject) JSONObject.toJSON(output);
 //            log.info("Return : " + returnMsg.get("meta").toString());
         } catch (Throwable throwable) {
             throwable.printStackTrace();

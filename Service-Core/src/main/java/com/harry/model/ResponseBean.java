@@ -1,5 +1,6 @@
 package com.harry.model;
 
+import lombok.Data;
 import java.io.Serializable;
 
 
@@ -8,6 +9,7 @@ import java.io.Serializable;
  * @author Harry
  *
  */
+@Data
 public class ResponseBean implements Serializable{
 
     public static String SUCCESS_CODE = "0";
@@ -20,22 +22,6 @@ public class ResponseBean implements Serializable{
 
     private Meta meta;
     private Object data;
-
-    public Meta getMeta() {
-        return meta;
-    }
-
-    public void setMeta(Meta meta) {
-        this.meta = meta;
-    }
-
-    public Object getData() {
-        return data;
-    }
-
-    public void setData(Object data) {
-        this.data = data;
-    }
 
     public ResponseBean success() {
         this.meta = new Meta(SUCCESS_CODE, OK);
@@ -69,7 +55,18 @@ public class ResponseBean implements Serializable{
         return this;
     }
 
+    @Data
     public static class Meta implements Serializable{
+
+        /**
+         * 错误编码
+         */
+        private String code;
+
+        /**
+         * 消息
+         */
+        private String message;
 
         public Meta() {
         }
@@ -83,51 +80,6 @@ public class ResponseBean implements Serializable{
             this.message = message;
         }
 
-        /**
-         * 错误编码
-         */
-        private String code;
-
-        /**
-         * 消息
-         */
-        private String message;
-
-        public String getCode() {
-            return code;
-        }
-
-        public void setCode(String code) {
-            this.code = code;
-        }
-
-        public String getMessage() {
-            return message;
-        }
-
-        public void setMessage(String message) {
-            this.message = message;
-        }
-        @Override
-        public String toString() {
-            StringBuffer sb = new StringBuffer("Meta:[ code :");
-            sb.append(this.code);
-            sb.append(" , message: ");
-            sb.append(this.message);
-            sb.append(" ]");
-            return sb.toString();
-        }
-    }
-    
-    
-    @Override
-    public String toString() {
-        StringBuffer sb = new StringBuffer("响应参数： ResponseBean:[ ");
-        sb.append(this.meta.toString());
-        sb.append(", data: ");
-        sb.append(this.data);
-        sb.append(" ]");
-        return sb.toString();
     }
 
 }

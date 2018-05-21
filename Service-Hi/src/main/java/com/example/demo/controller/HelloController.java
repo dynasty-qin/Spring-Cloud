@@ -11,17 +11,17 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 @RestController
-@RequestMapping(value = "/hello")
+@RequestMapping(value = "/user")
 public class HelloController {
 
     @Resource
     private HelloService helloService;
 
     @ExecTime
-    @RequestMapping(value = "/first",produces = "application/json",method = RequestMethod.GET)
-    public ResponseBean sayHello(@RequestParam String name){
+    @RequestMapping(value = "/{userId}",produces = "application/json",method = RequestMethod.GET)
+    public ResponseBean sayHello(@PathVariable Integer userId){
 
-        return new ResponseBean().success(helloService.sayHello(name));
+        return new ResponseBean().success(helloService.getUser(userId));
     }
 
     @ExecTime
