@@ -1,9 +1,7 @@
 package com.example.demo.fallback;
 
 import com.example.demo.service.SchedualServiceHi;
-import com.example.demo.service.SchedualServiceHiFallBackFactoryClient;
 import com.harry.model.ResponseBean;
-import com.harry.model.User;
 import feign.hystrix.FallbackFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,7 +20,7 @@ public class SchedualSericeHiFallBackFactory implements FallbackFactory<Schedual
     @Override
     public SchedualServiceHi create(Throwable throwable) {
 
-        return new SchedualServiceHiFallBackFactoryClient() {
+        return new SchedualServiceHi() {
             @Override
             public String sayHiFromClientOne(String name) {
 
@@ -31,9 +29,9 @@ public class SchedualSericeHiFallBackFactory implements FallbackFactory<Schedual
             }
 
             @Override
-            public ResponseBean addUser(User user) {
+            public ResponseBean getUser(Integer id) {
                 log.error(throwable.getMessage());
-                return new ResponseBean().fail("failed !");
+                return new ResponseBean().fail("Failed !");
             }
         };
     }

@@ -2,7 +2,6 @@ package com.example.demo.controller;
 
 import com.example.demo.service.SchedualServiceHi;
 import com.harry.model.ResponseBean;
-import com.harry.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,5 +22,4 @@ public class UserController {
     public ResponseBean addUser(@PathVariable Integer id){
         return serviceHi.getUser(id);
     }
-
 }

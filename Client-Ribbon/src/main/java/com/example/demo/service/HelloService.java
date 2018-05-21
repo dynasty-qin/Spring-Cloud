@@ -12,7 +12,6 @@ public class HelloService {
     private RestTemplate restTemplate;
 
     public String hiService(String name){
-        ResponseEntity<String> forEntity = restTemplate.getForEntity("http://SERVICE-HI/hi", String.class, name);
 
         return restTemplate.getForObject("http://SERVICE-HI/hi?name=" + name,String.class);
     }

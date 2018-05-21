@@ -33,5 +33,4 @@ spring:
         poolPreparedStatements: true
         maxOpenPreparedStatements: 20
 mybatis:
-    mapperLocations: classpath:mapper/*.xml
     typeAliasesPackage: com.example.demo.model

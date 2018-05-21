@@ -4,7 +4,6 @@ import com.example.demo.service.HelloService;
 import com.harry.annotations.ExecTime;
 import com.harry.annotations.RequestDecode;
 import com.harry.model.ResponseBean;
-import com.harry.model.User;
 import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import java.math.BigDecimal;

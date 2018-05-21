@@ -2,7 +2,6 @@ package com.example.demo.service;
 
 import com.example.demo.fallback.SchedualSericeHiFallBackFactory;
 import com.harry.model.ResponseBean;
-import com.harry.model.User;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 

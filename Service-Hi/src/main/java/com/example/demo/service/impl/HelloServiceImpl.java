@@ -11,7 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class HelloServiceImpl implements HelloService{
 
-    @SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Autowired
     private UserMapper userMapper;
 
@@ -23,5 +22,4 @@ public class HelloServiceImpl implements HelloService{
     public User getUser(Integer userId) {
         return userMapper.selectByPrimaryKey(userId);
     }
-
 }
