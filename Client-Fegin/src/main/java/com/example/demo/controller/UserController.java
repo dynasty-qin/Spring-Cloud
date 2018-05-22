@@ -12,14 +12,8 @@ public class UserController {
     @Autowired
     private SchedualServiceHi serviceHi;
 
-    @RequestMapping(value = "/sayHi",method = RequestMethod.GET)
-    public String hi(@RequestParam String name){
-
-        return serviceHi.sayHiFromClientOne(name);
-    }
-
-    @RequestMapping(value = "/{id}",method = RequestMethod.POST)
-    public ResponseBean addUser(@PathVariable Integer id){
+    @RequestMapping(value = "/{id}",method = RequestMethod.GET)
+    public ResponseBean getUser(@PathVariable Integer id){
         return serviceHi.getUser(id);
     }
 }
