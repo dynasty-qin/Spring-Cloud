@@ -1,10 +1,12 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.User;
+import com.example.demo.property.DemoProperty;
 import com.example.demo.service.HelloService;
 import com.harry.annotations.ExecTime;
 import com.harry.annotations.RequestDecode;
 import com.harry.model.ResponseBean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import java.math.BigDecimal;
@@ -16,6 +18,8 @@ public class HelloController {
 
     @Resource
     private HelloService helloService;
+    @Autowired
+    private DemoProperty demoProperty;
 
     @ExecTime
     @RequestMapping(value = "/{userId}",produces = "application/json",method = RequestMethod.GET)
@@ -38,5 +42,12 @@ public class HelloController {
         user1.setBirthday(new Date());
 
         return new ResponseBean().success(user1);
+    }
+
+    @ExecTime
+    @RequestDecode
+    @GetMapping(value = "/demo",produces = "application/json")
+    public ResponseBean getDemoName(){
+        return new ResponseBean().success(demoProperty.getName());
     }
 }

@@ -9,7 +9,6 @@ import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.web.client.RestTemplate;
-
 import javax.sql.DataSource;
 
 @SpringBootApplication
@@ -31,7 +30,7 @@ public class EurekaClientApplication {
 	@Bean
 	public DataSource dataSource(){
 		DruidDataSource dataSource = new DruidDataSource();
-		dataSource.setUrl("jdbc:mysql://47.104.240.128:3306/hr?userSSL=false");
+		dataSource.setUrl("jdbc:mysql://47.104.240.128:3306/hr?useSSL=false");
 		dataSource.setUsername("root");//用户名
 		dataSource.setPassword("harry123123");//密码
 		dataSource.setInitialSize(10);
