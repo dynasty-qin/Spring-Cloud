@@ -18,7 +18,7 @@ public class SchedualSericeHiFallBackFactory implements FallbackFactory<Schedual
     private static final Logger log = LoggerFactory.getLogger(SchedualSericeHiFallBackFactory.class);
 
     @Override
-    public SchedualServiceHi create(Throwable throwable) {
+    public SchedualServiceHi create(final Throwable throwable) {
 
         return new SchedualServiceHi() {
             @Override
