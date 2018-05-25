@@ -21,7 +21,6 @@ public class HelloController {
     @Autowired
     private DemoProperty demoProperty;
 
-    @ExecTime
     @RequestMapping(value = "/{userId}",produces = "application/json",method = RequestMethod.GET)
     public ResponseBean sayHello(@PathVariable Integer userId){
 
@@ -36,6 +35,7 @@ public class HelloController {
         User user1 = new User();
 
         user1.setName("tom");
+        user1.setId(3);
 //        user1.setAge(10);
         user1.setMoney(new BigDecimal("0.01005464321000"));
         user1.setScale(new BigDecimal("0.154600065400"));

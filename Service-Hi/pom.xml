@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.example</groupId>
-	<artifactId>demo</artifactId>
+	<artifactId>Service-Hi</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>demo</name>
+	<name>Service-Hi</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
@@ -31,6 +31,12 @@
 			<groupId>com.example</groupId>
 			<artifactId>core</artifactId>
 			<version>1.0-SNAPSHOT</version>
+		</dependency>
+		<!--springBoot工程实现热部署-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<optional>true</optional>
 		</dependency>
 		<!--<dependency>
 			<groupId>com.codingapi</groupId>
@@ -151,6 +157,13 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<fork>true</fork><!--注意要修改这里-->
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
