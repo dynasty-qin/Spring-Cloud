@@ -1,5 +1,6 @@
 package com.example.demo.fallback;
 
+import com.example.demo.model.User;
 import com.example.demo.service.SchedualServiceHi;
 import com.harry.model.ResponseBean;
 import feign.hystrix.FallbackFactory;
@@ -29,9 +30,9 @@ public class SchedualSericeHiFallBackFactory implements FallbackFactory<Schedual
             }
 
             @Override
-            public ResponseBean getUser(Integer id) {
+            public User getUser(Integer id) {
                 log.error(throwable.getMessage());
-                return new ResponseBean().fail("Failed !");
+                return new User();
             }
         };
     }

@@ -26,13 +26,9 @@ public class MyResponseBodyAdvice implements ResponseBodyAdvice{
     @Override
     public Object beforeBodyWrite(Object o, MethodParameter methodParameter, MediaType mediaType, Class aClass, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
 
-        if (o instanceof ResponseBean) {
-            o = (ResponseBean) o;
-            Object data = ((ResponseBean) o).getData();
-            String jsonString = JSON.toJSONString(data,new FieldFormatFilter());
-            Object parse = JSONObject.parse(jsonString);
-            ((ResponseBean) o).setData(parse);
-        }
-        return o;
+        String jsonString = JSON.toJSONString(o,new FieldFormatFilter());
+        Object parse = JSONObject.parse(jsonString);
+
+        return parse;
     }
 }

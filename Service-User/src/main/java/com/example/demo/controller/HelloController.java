@@ -12,6 +12,7 @@ import javax.annotation.Resource;
 import java.math.BigDecimal;
 import java.util.Date;
 
+@SuppressWarnings("Duplicates")
 @RestController
 @RequestMapping(value = "/user")
 public class HelloController {
@@ -22,32 +23,30 @@ public class HelloController {
     private DemoProperty demoProperty;
 
     @RequestMapping(value = "/{userId}",produces = "application/json",method = RequestMethod.GET)
-    public ResponseBean sayHello(@PathVariable Integer userId){
+    public User sayHello(@PathVariable Integer userId){
 
-        return new ResponseBean().success(helloService.getUser(userId));
+        return helloService.getUser(userId);
     }
 
     @ExecTime
     @RequestDecode
     @RequestMapping(value = "/second",produces="application/json",method = RequestMethod.POST)
-    public ResponseBean addUser(@RequestBody User user){
+    public User addUser(@RequestBody User user){
 
-        User user1 = new User();
-
-        user1.setName("tom");
-        user1.setId(3);
+        user.setName("tom");
+        user.setId(3);
 //        user1.setAge(10);
-        user1.setMoney(new BigDecimal("0.01005464321000"));
-        user1.setScale(new BigDecimal("0.154600065400"));
-        user1.setBirthday(new Date());
+        user.setMoney(new BigDecimal("0.01005464321000"));
+        user.setScale(new BigDecimal("0.154600065400"));
+        user.setBirthday(new Date());
 
-        return new ResponseBean().success(user1);
+        return user;
     }
 
     @ExecTime
     @RequestDecode
     @GetMapping(value = "/demo",produces = "application/json")
-    public ResponseBean getDemoName(){
-        return new ResponseBean().success(demoProperty.getName());
+    public String getDemoName(){
+        return demoProperty.getName();
     }
 }

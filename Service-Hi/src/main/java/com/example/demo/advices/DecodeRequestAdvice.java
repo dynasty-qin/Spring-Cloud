@@ -9,6 +9,7 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestBodyAdvice;
 import java.io.IOException;
 import java.lang.reflect.Type;
 
+@SuppressWarnings("Duplicates")
 @ControllerAdvice
 public class DecodeRequestAdvice implements RequestBodyAdvice {
 

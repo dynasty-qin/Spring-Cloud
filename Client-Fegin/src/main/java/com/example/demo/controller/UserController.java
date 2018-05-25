@@ -14,6 +14,6 @@ public class UserController {
 
     @RequestMapping(value = "/{id}",method = RequestMethod.GET)
     public ResponseBean getUser(@PathVariable Integer id){
-        return serviceHi.getUser(id);
+        return new ResponseBean().success(serviceHi.getUser(id));
     }
 }
