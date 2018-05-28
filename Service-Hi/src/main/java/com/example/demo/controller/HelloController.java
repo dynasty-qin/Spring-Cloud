@@ -5,6 +5,7 @@ import com.example.demo.property.DemoProperty;
 import com.example.demo.service.HelloService;
 import com.harry.annotations.ExecTime;
 import com.harry.annotations.RequestDecode;
+import com.harry.model.ResponseBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
@@ -44,7 +45,7 @@ public class HelloController {
 
     @ExecTime
     @RequestDecode
-    @GetMapping(value = "/demo",produces = "application/json")
+//    @GetMapping(value = "/demo",produces = "application/json")
     public String getDemoName(){
         return demoProperty.getName();
     }

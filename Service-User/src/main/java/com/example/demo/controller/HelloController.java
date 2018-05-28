@@ -22,7 +22,7 @@ public class HelloController {
     @Autowired
     private DemoProperty demoProperty;
 
-    @RequestMapping(value = "/{userId}",produces = "application/json",method = RequestMethod.GET)
+    @RequestMapping(value = "/{userId}",method = RequestMethod.GET)
     public User sayHello(@PathVariable Integer userId){
 
         return helloService.getUser(userId);

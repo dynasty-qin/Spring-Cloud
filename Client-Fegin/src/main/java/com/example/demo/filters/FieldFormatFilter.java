@@ -5,11 +5,13 @@ import com.harry.annotations.FieldFormat;
 import com.harry.enums.FieldFormatEnum;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import java.lang.reflect.Field;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+@SuppressWarnings("Duplicates")
 public class FieldFormatFilter implements ValueFilter {
 
     private static final Logger logger = LoggerFactory.getLogger(FieldFormatFilter.class);
@@ -48,8 +50,7 @@ public class FieldFormatFilter implements ValueFilter {
             }
             return value;
         } catch (Exception e) {
-            e.printStackTrace();
-            logger.info("格式化失败  !");
+            logger.info("格式化失败  !" + e.getMessage());
             return value;
         }
     }

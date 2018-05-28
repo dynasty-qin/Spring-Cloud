@@ -13,6 +13,8 @@ import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
+import java.util.LinkedHashMap;
+
 @ControllerAdvice
 public class MyResponseBodyAdvice implements ResponseBodyAdvice{
 
@@ -26,9 +28,12 @@ public class MyResponseBodyAdvice implements ResponseBodyAdvice{
     @Override
     public Object beforeBodyWrite(Object o, MethodParameter methodParameter, MediaType mediaType, Class aClass, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
 
-        String jsonString = JSON.toJSONString(o,new FieldFormatFilter());
-        Object parse = JSONObject.parse(jsonString);
+        if (o instanceof ResponseBean){
 
-        return parse;
+            String jsonString = JSON.toJSONString(o, new FieldFormatFilter());
+            o = JSONObject.parse(jsonString);
+        }
+
+        return o;
     }
 }

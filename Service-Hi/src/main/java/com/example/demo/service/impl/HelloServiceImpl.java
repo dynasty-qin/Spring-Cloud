@@ -1,5 +1,6 @@
 package com.example.demo.service.impl;
 
+import com.alibaba.fastjson.JSONObject;
 import com.example.demo.mapper.UserMapper;
 import com.example.demo.model.User;
 import com.example.demo.service.HelloService;
@@ -25,9 +26,7 @@ public class HelloServiceImpl implements HelloService{
 
     @Override
     public User getUser(Integer userId) {
-        ResponseEntity<ResponseBean> forEntity = restTemplate.getForEntity("http://SERVICE-USER/user/{1}", ResponseBean.class, 1);
-        User user = (User) forEntity.getBody().getData();
-        System.out.println(user);
-        return userMapper.selectByPrimaryKey(userId);
+        ResponseEntity<User> forEntity = restTemplate.getForEntity("http://SERVICE-USER/user/{1}", User.class, 1);
+        return forEntity.getBody();
     }
 }
