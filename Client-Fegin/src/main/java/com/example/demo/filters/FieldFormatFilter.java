@@ -34,7 +34,7 @@ public class FieldFormatFilter implements ValueFilter {
                             value = decimalValue.stripTrailingZeros().toPlainString();
                             break;
                         default:
-                            logger.error("不支持的格式化类型 !");
+                            logger.error("Unsupported formatting type !");
                             break;
                     }
                 }else if (value instanceof Date){
@@ -50,7 +50,7 @@ public class FieldFormatFilter implements ValueFilter {
             }
             return value;
         } catch (Exception e) {
-            logger.info("格式化失败  !" + e.getMessage());
+            logger.info("Formatting failed ! Reason : " + e.getMessage());
             return value;
         }
     }
