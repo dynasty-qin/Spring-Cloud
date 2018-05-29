@@ -24,5 +24,4 @@ public class User {
 
     @FieldFormat(value = FieldFormatEnum.DATE)
     private Date birthday;
-
 }

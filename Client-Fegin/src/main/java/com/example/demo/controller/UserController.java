@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.example.demo.model.User;
 import com.example.demo.service.SchedualServiceHi;
 import com.harry.annotations.ExecTime;
 import com.harry.annotations.RequestDecode;
@@ -15,10 +16,16 @@ public class UserController {
     private SchedualServiceHi serviceHi;
 
     @ExecTime
-    @RequestDecode
     @RequestMapping(value = "/{userId}",produces = "application/json",method = RequestMethod.GET)
     public ResponseBean getUser(@PathVariable Integer userId){
 
         return new ResponseBean().success(serviceHi.getUser(userId));
+    }
+
+    @ExecTime
+    @RequestDecode
+    @PostMapping(value = "",produces = "application/json")
+    public ResponseBean addUser(@RequestBody User user){
+        return new ResponseBean().success(user);
     }
 }

@@ -28,9 +28,8 @@ public class FirstFilter extends ZuulFilter {
 
         RequestContext currentContext = RequestContext.getCurrentContext();
         HttpServletRequest request = currentContext.getRequest();
-        String accessToken = request.getParameter("AccessToken");
-
-        if (accessToken == null) {
+        String adminName = request.getHeader("AdminName");
+        if (!"harry".equalsIgnoreCase(adminName)){
             currentContext.setSendZuulResponse(false);
             currentContext.setResponseStatusCode(401);
             return null;

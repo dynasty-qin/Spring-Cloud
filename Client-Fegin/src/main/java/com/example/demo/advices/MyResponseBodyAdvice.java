@@ -32,6 +32,7 @@ public class MyResponseBodyAdvice implements ResponseBodyAdvice{
 
             String jsonString = JSON.toJSONString(o, new FieldFormatFilter());
             o = JSONObject.parse(jsonString);
+            log.info("The field was formatted successfully !");
         }
 
         return o;

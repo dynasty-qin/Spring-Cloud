@@ -11,7 +11,6 @@ import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@SuppressWarnings("Duplicates")
 public class FieldFormatFilter implements ValueFilter {
 
     private static final Logger logger = LoggerFactory.getLogger(FieldFormatFilter.class);
