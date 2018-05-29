@@ -44,7 +44,6 @@ public class WeixinController {
     @PostMapping(value = "check")
     @RequestDecode
     public String message(@RequestBody String s) throws IOException, XmlPullParserException {
-        System.out.println(s);
         Map<String, String> xmlParse = XMLUtil.xmlParse(s);
 
         String content = xmlParse.get("Content");
@@ -52,7 +51,12 @@ public class WeixinController {
         String fromUserName = xmlParse.get("FromUserName");
         String msgType = xmlParse.get("MsgType");
         Date date = new Date();
-        String msgContent = sendRequest(content);
+        String msgContent;
+        if ("我爱何瑞".equals(content)){
+            msgContent = "何瑞也爱你,小傻冰 !么么哒 ~";
+        }else{
+            msgContent = sendRequest(content);
+        }
         String a = "<xml>" +
                 "<ToUserName>" + fromUserName + "</ToUserName>" +
                 "<FromUserName>" + toUserName + "</FromUserName>" +
@@ -76,7 +80,6 @@ public class WeixinController {
         bodys.put("perception",perception);
         bodys.put("userInfo",userInfo);
         String s = JSONObject.toJSONString(bodys);
-        System.out.println(s);
 
         String post = HttpUtils.post(TULING_API_HOST + TULING_API_PATH, s);
         JSONObject parse = (JSONObject) JSONObject.parse(post);
