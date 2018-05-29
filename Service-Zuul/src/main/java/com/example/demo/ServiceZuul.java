@@ -13,5 +13,4 @@ public class ServiceZuul {
 	public static void main(String[] args) {
 		SpringApplication.run(ServiceZuul.class, args);
 	}
-
 }

@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.model.User;
+import com.harry.model.User;
 import com.example.demo.service.SchedualServiceHi;
 import com.harry.annotations.ExecTime;
 import com.harry.annotations.RequestDecode;

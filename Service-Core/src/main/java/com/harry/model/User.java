@@ -1,9 +1,8 @@
-package com.example.demo.model;
+package com.harry.model;
 
 import com.harry.annotations.FieldFormat;
 import com.harry.enums.FieldFormatEnum;
 import lombok.Data;
-
 import java.math.BigDecimal;
 import java.util.Date;
 

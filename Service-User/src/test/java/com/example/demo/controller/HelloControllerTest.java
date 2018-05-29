@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.model.User;
+import com.harry.model.User;
 import com.example.demo.service.HelloService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
