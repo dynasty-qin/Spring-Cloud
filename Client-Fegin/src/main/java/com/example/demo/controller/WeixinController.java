@@ -24,12 +24,11 @@ import java.util.Map;
 /**
  * @Author : Harry
  * @Date :  2018-05-29 14:58
- * @Description :
+ * @Description : 微信服务器验证,自动回复,获取AccessToken
  */
 @RestController
 @RequestMapping(value = "weixin")
 public class WeixinController {
-
 
     public static final String TULING_API_HOST = "http://openapi.tuling123.com";
     public static final String TULING_API_PATH = "/openapi/api/v2";

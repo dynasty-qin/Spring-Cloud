@@ -17,7 +17,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class WeiXinAccessTokenTask {
 
-
     @Value("${weixin.appId}")
     private String appId;
 
