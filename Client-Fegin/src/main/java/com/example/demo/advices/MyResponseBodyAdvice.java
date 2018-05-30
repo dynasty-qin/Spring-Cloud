@@ -15,6 +15,11 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 import java.util.LinkedHashMap;
 
+/**
+ * @Author : Harry
+ * @Date :  2018-05-30 10:09
+ * @Description : 对相应数据处理
+ */
 @ControllerAdvice
 public class MyResponseBodyAdvice implements ResponseBodyAdvice{
 

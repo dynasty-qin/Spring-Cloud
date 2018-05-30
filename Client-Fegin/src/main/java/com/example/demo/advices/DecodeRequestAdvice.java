@@ -9,6 +9,11 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestBodyAdvice;
 import java.io.IOException;
 import java.lang.reflect.Type;
 
+/**
+ * @Author : Harry
+ * @Date :  2018-05-30 10:09
+ * @Description : 针对GET,POST请求的处理
+ */
 @ControllerAdvice
 public class DecodeRequestAdvice implements RequestBodyAdvice {
 

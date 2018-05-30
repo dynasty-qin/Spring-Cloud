@@ -8,6 +8,11 @@ import org.springframework.http.HttpInputMessage;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
+/**
+ * @Author : Harry
+ * @Date :  2018-05-30 10:09
+ * @Description : 自定义InputMessage
+ */
 public class DecodeHttpInputMessage implements HttpInputMessage {
 
     private HttpHeaders headers;

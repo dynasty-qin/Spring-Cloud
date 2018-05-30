@@ -10,6 +10,11 @@ import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+/**
+ * @Author : Harry
+ * @Date :  2018-05-30 10:09
+ * @Description : 自定义字段格式化
+ */
 public class FieldFormatFilter implements ValueFilter {
 
     private static final Logger logger = LoggerFactory.getLogger(FieldFormatFilter.class);

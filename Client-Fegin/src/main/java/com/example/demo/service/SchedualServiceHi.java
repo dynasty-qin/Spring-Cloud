@@ -6,6 +6,11 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * @Author : Harry
+ * @Date :  2018-05-30 10:09
+ * @Description : Fegin 调用方式(业务层)
+ */
 @Component
 @FeignClient(value = "service-hi",fallbackFactory = SchedualSericeHiFallBackFactory.class)
 public interface SchedualServiceHi {

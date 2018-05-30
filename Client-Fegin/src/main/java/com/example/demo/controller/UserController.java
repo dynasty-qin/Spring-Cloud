@@ -8,6 +8,11 @@ import com.harry.model.ResponseBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * @Author : Harry
+ * @Date :  2018-05-30 10:09
+ * @Description : 测试用Controller
+ */
 @RestController
 @RequestMapping(value="/user")
 public class UserController {

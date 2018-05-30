@@ -9,6 +9,11 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 import java.util.Arrays;
 
+/**
+ * @Author : Harry
+ * @Date :  2018-05-30 10:09
+ * @Description : Advice配置
+ */
 @Configuration
 @EnableWebMvc
 public class AdviceConfig extends DelegatingWebMvcConfiguration{

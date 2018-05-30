@@ -15,6 +15,12 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
+
+/**
+ * @Author : Harry
+ * @Date :  2018-05-30 10:09
+ * @Description : 统计方法执行时长的aop
+ */
 @Aspect
 @Component
 public class ExecTimeAspect {
