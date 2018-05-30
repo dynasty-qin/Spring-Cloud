@@ -2,17 +2,21 @@ package com.example.demo.controller;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.example.demo.Tasks.RedisTokenHelper;
 import com.harry.annotations.ExecTime;
 import com.harry.annotations.RequestDecode;
 import com.harry.model.InputText;
 import com.harry.model.Perception;
+import com.harry.model.ResponseBean;
 import com.harry.model.UserInfo;
 import com.harry.utils.HttpUtils;
 import com.harry.utils.XMLUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.xmlpull.v1.XmlPullParserException;
-
 import java.io.IOException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -30,13 +34,12 @@ public class WeixinController {
     public static final String TULING_API_HOST = "http://openapi.tuling123.com";
     public static final String TULING_API_PATH = "/openapi/api/v2";
 
+    @Autowired
+    private RedisTokenHelper tokenHelper;
+
     @ExecTime
     @GetMapping(value = "check")
     public String check(@RequestParam String signature,@RequestParam String timestamp,@RequestParam String nonce,@RequestParam String echostr){
-        System.out.println("signature : " + signature);
-        System.out.println("timestamp : " + timestamp);
-        System.out.println("nonce : " + nonce);
-        System.out.println("echostr : " + echostr);
         return echostr;
     }
 
@@ -47,15 +50,22 @@ public class WeixinController {
         Map<String, String> xmlParse = XMLUtil.xmlParse(s);
 
         String content = xmlParse.get("Content");
+
         String toUserName = xmlParse.get("ToUserName");
         String fromUserName = xmlParse.get("FromUserName");
         String msgType = xmlParse.get("MsgType");
         Date date = new Date();
+
         String msgContent;
-        if ("我爱何瑞".equals(content)){
-            msgContent = "何瑞也爱你,小傻冰 !么么哒 ~";
+        if ("%E6%88%91%E7%88%B1%E4%BD%95%E7%91%9E".equals(URLEncoder.encode(content))){
+            msgContent = URLDecoder.decode("%E4%BD%95%E7%91%9E%E4%B9%9F%E7%88%B1%E4%BD%A0%E5%91%A6%2C%E5%B0%8F%E5%82%BB%E5%86%B0%2C%E4%B9%88%E4%B9%88%E5%93%92+%7E");
         }else{
-            msgContent = sendRequest(content);
+            content = content.trim();
+            if (content == null || "".equals(content)) {
+                msgContent = "What are you talking about ?";
+            }else{
+                msgContent = sendRequest(content) == null ? "对不起,我不太懂这个 ~" : sendRequest(content);
+            }
         }
         String a = "<xml>" +
                 "<ToUserName>" + fromUserName + "</ToUserName>" +
@@ -88,5 +98,14 @@ public class WeixinController {
         JSONObject values = (JSONObject) o.get("values");
         String text = (String) values.get("text");
         return text;
+    }
+
+    @GetMapping(value = "accessToken",produces = "application/json")
+    public ResponseBean getAccessToken(){
+
+        Map<String,Object> map = new HashMap<>();
+        map.put("AccessToken",tokenHelper.getObject("access_token"));
+
+        return new ResponseBean().success(map);
     }
 }
