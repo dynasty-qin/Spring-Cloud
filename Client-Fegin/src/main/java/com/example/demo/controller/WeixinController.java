@@ -2,7 +2,7 @@ package com.example.demo.controller;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.example.demo.Tasks.RedisTokenHelper;
+import com.example.demo.task.RedisTokenHelper;
 import com.harry.annotations.ExecTime;
 import com.harry.annotations.RequestDecode;
 import com.harry.model.InputText;
@@ -46,15 +46,40 @@ public class WeixinController {
     @PostMapping(value = "check")
     @RequestDecode
     public String message(@RequestBody String s) throws IOException, XmlPullParserException {
+
+        if(s == null || "".equals(s)){
+
+            return null;
+        }
         Map<String, String> xmlParse = XMLUtil.xmlParse(s);
 
         String content = xmlParse.get("Content");
 
+        String event = xmlParse.get("Event");// subscribe : 订阅, unsubscribe : 取消订阅
         String toUserName = xmlParse.get("ToUserName");
         String fromUserName = xmlParse.get("FromUserName");
         String msgType = xmlParse.get("MsgType");
         Date date = new Date();
+        if (event != null && !"".equals(event)){
 
+            String msg;
+            if ("subscribe".equals(event)){
+                msg = "Welcome To Harry's Official Account !";
+            }else if ("unsubscribe".equals(event)){
+                msg = fromUserName + " unsubscribe !";
+            }else {
+                return "";
+            }
+            String a = "<xml>" +
+                    "<ToUserName>" + fromUserName + "</ToUserName>" +
+                    "<FromUserName>" + toUserName + "</FromUserName>" +
+                    "<CreateTime>" + date.getTime() + "</CreateTime>" +
+                    "<MsgType>text</MsgType>" +
+                    "<Content>" + new String(msg.getBytes(),"iso8859-1") + "</Content>" +
+                    "</xml>";
+
+            return a;
+        }
         String msgContent;
         if ("%E6%88%91%E7%88%B1%E4%BD%95%E7%91%9E".equals(URLEncoder.encode(content))){
             msgContent = URLDecoder.decode("%E4%BD%95%E7%91%9E%E4%B9%9F%E7%88%B1%E4%BD%A0%E5%91%A6%2C%E5%B0%8F%E5%82%BB%E5%86%B0%2C%E4%B9%88%E4%B9%88%E5%93%92+%7E");

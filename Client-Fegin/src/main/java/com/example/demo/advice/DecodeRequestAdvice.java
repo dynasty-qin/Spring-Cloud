@@ -1,4 +1,4 @@
-package com.example.demo.advices;
+package com.example.demo.advice;
 
 import com.harry.annotations.RequestDecode;
 import org.springframework.core.MethodParameter;

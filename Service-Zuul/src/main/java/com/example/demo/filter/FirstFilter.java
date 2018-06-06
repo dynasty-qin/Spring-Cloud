@@ -1,8 +1,8 @@
-package com.example.demo.filters;
+package com.example.demo.filter;
 
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
-import org.springframework.stereotype.Component;
+
 import javax.servlet.http.HttpServletRequest;
 
 //@Component

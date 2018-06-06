@@ -1,4 +1,4 @@
-package com.example.demo.configs;
+package com.example.demo.config;
 
 import com.example.demo.serializer.FastJsonRedisSerializer;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;

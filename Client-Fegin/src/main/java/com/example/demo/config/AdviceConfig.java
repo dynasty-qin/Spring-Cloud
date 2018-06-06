@@ -1,7 +1,7 @@
-package com.example.demo.configs;
+package com.example.demo.config;
 
-import com.example.demo.advices.DecodeRequestAdvice;
-import com.example.demo.advices.MyResponseBodyAdvice;
+import com.example.demo.advice.DecodeRequestAdvice;
+import com.example.demo.advice.MyResponseBodyAdvice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.DelegatingWebMvcConfiguration;

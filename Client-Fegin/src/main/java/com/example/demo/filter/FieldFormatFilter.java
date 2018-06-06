@@ -1,4 +1,4 @@
-package com.example.demo.filters;
+package com.example.demo.filter;
 
 import com.alibaba.fastjson.serializer.ValueFilter;
 import com.harry.annotations.FieldFormat;

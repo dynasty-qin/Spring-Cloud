@@ -1,4 +1,4 @@
-package com.example.demo.advices;
+package com.example.demo.advice;
 
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
