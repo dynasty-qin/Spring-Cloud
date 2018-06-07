@@ -13,11 +13,8 @@ public class CollectionUtil {
 
 	// 判断一个集合是否为空
 	public static <T> boolean isEmpty(Collection<T> col) {
-		if (col == null || col.isEmpty()) {
-			return true;
-		}
 
-		return false;
+		return (col == null || col.isEmpty());
 	}
 
 	// 判断一个集合是否不为空
@@ -27,11 +24,7 @@ public class CollectionUtil {
 
 	// 判断Map是否为空
 	public static <K, V> boolean isEmpty(Map<K, V> map) {
-		if (map == null || map.isEmpty()) {
-			return true;
-		}
-
-		return false;
+		return (map == null || map.isEmpty());
 	}
 
 	// 判断Map是否不为空为空

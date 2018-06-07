@@ -1,5 +1,8 @@
 package com.harry.model;
 
+import lombok.Data;
+
+@Data
 public class Perception {
 
     private InputText inputText;
@@ -8,28 +11,4 @@ public class Perception {
 
     private SelfInfo selfInfo;
 
-
-    public SelfInfo getSelfInfo() {
-        return selfInfo;
-    }
-
-    public void setSelfInfo(SelfInfo selfInfo) {
-        this.selfInfo = selfInfo;
-    }
-
-    public InputText getInputText() {
-        return inputText;
-    }
-
-    public void setInputText(InputText inputText) {
-        this.inputText = inputText;
-    }
-
-    public InputImage getInputImage() {
-        return inputImage;
-    }
-
-    public void setInputImage(InputImage inputImage) {
-        this.inputImage = inputImage;
-    }
 }
