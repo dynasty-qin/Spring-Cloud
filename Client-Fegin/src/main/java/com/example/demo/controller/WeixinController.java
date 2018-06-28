@@ -20,6 +20,7 @@ import java.net.URLEncoder;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Consumer;
 
 /**
  * @Author : Harry
@@ -54,7 +55,6 @@ public class WeixinController {
         Map<String, String> xmlParse = XMLUtil.xmlParse(s);
 
         String content = xmlParse.get("Content");
-
         String event = xmlParse.get("Event");// subscribe : 订阅, unsubscribe : 取消订阅
         String toUserName = xmlParse.get("ToUserName");
         String fromUserName = xmlParse.get("FromUserName");

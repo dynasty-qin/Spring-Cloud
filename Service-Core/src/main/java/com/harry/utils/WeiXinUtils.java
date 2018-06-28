@@ -187,7 +187,6 @@ public class WeiXinUtils {
 	        String result = str;
 
 	        try {
-
 	            result = URLEncoder.encode(str,"UTF-8");
 
 	        } catch (Exception e) {

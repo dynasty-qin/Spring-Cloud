@@ -3,10 +3,7 @@ package com.example.demo.aspect;
 import com.alibaba.fastjson.JSONObject;
 import com.harry.annotations.ExecTime;
 import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.Around;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -49,6 +46,7 @@ public class ExecTimeAspect {
 
     @Before("execTime()")
     public void before(){
+
         ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = requestAttributes.getRequest();
         String remoteHost = request.getRemoteHost();
