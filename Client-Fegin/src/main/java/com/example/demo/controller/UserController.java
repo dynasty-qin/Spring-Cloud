@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
 import com.harry.model.User;
-import com.example.demo.service.SchedualServiceHi;
+import com.example.demo.client.SchedualServiceHi;
 import com.harry.annotations.ExecTime;
 import com.harry.annotations.RequestDecode;
 import com.harry.model.ResponseBean;

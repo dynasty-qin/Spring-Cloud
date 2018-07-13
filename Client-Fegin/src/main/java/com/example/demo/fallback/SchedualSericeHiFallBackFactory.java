@@ -1,7 +1,7 @@
 package com.example.demo.fallback;
 
 import com.harry.model.User;
-import com.example.demo.service.SchedualServiceHi;
+import com.example.demo.client.SchedualServiceHi;
 import feign.hystrix.FallbackFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

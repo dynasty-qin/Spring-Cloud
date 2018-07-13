@@ -1,4 +1,4 @@
-package com.example.demo.service;
+package com.example.demo.client;
 
 import com.example.demo.fallback.SchedualSericeHiFallBackFactory;
 import com.harry.model.User;
